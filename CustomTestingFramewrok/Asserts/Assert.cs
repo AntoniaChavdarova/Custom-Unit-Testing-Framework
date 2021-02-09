@@ -10,9 +10,9 @@ namespace CustomTestingFramework.Asserts
         public static bool AreEqual(int a , int b)
         {
            if(a != b)
-            {
+           {
                 throw new TestException("Values are not the same");
-            }
+           }
 
             return true;
 

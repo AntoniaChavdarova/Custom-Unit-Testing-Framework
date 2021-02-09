@@ -20,5 +20,57 @@ namespace CustomTestingFramework.Tests
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod()]
+        public void ShouldDivideSuccesfullyTwoValues()
+        {
+            int a = 10;
+            int b = 5;
+            int expectedResult = 2;
+
+            Calculator calculator = new Calculator();
+            var actualResult = calculator.Divide(a, b);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod()]
+        public void ShouldMultiplySuccesfullyTwoValues()
+        {
+            int a = 10;
+            int b = 5;
+            int expectedResult = 50;
+
+            Calculator calculator = new Calculator();
+            var actualResult = calculator.Multiplication(a, b);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod()]
+        public void ShouldSubtractSuccesfullyTwoValues()
+        {
+            int a = 10;
+            int b = 5;
+            int expectedResult = 5;
+
+            Calculator calculator = new Calculator();
+            var actualResult = calculator.Subtraction(a, b);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod()]
+        public void ShouldThrowExceptionWhenSubtract()
+        {
+            int a = 10;
+            int b = 5;
+            int expectedResult = 50;
+
+            Calculator calculator = new Calculator();
+            var actualResult = calculator.Subtraction(a, b);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }

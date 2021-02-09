@@ -1,5 +1,6 @@
 ﻿using CustomTestingFramework.Attributes;
 using CustomTestingFramework.Exceptions;
+using CustomTestingFramework.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,15 +24,18 @@ namespace CustomTestingFramework.TestRunner
             var testClasses = Assembly
                 .LoadFile(path)
                 .GetTypes()
-                .Where(x => x.CustomAttributes.Any(y => y.AttributeType == typeof
-                (TestClassAttribute))).ToList();
+                .Where(ti => ti.HasAttribute<TestClassAttribute>())
+                .ToList();
+
+            // or these -> .Where(x => x.CustomAttributes.Any(y => y.AttributeType == typeof
+           // (TestClassAttribute))).ToList();
 
             foreach (var testClass in testClasses)
             {
                 var testMethods = testClass
                     .GetMethods()
-                     .Where(x => x.CustomAttributes.Any(y => y.AttributeType == typeof
-                (TestMethodAttribute))).ToList();
+                     .Where(ti => ti.HasAttribute<TestMethodAttribute>())
+                     .ToList();
 
                 var testClassInstance = Activator.CreateInstance(testClass);
 
