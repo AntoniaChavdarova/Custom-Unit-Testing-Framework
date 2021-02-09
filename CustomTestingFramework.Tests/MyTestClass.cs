@@ -72,5 +72,18 @@ namespace CustomTestingFramework.Tests
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod()]
+        public void ShouldThrowExceptionWhenDivide()
+        {
+            int a = 10;
+            int b = 5;
+            int expectedResult = 200;
+
+            Calculator calculator = new Calculator();
+            var actualResult = calculator.Divide(a, b);
+
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
